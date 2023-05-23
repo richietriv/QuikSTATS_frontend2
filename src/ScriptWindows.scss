@@ -1,0 +1,129 @@
+.mainWindow {
+  display: flex;
+  padding: 30px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+.selectionsContainer {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scriptWindowsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.scriptWindowsContainer > * {
+  flex: 1 1 calc(33.33% - 20px);
+  margin-bottom: 20px;
+  margin-right: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scrolling-window {
+  flex: 1 1 600px;
+  min-width: 500px;
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+ 
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  
+  margin-bottom: 8px;
+
+  &:not(:last-child) {
+    border-bottom: none;
+  }
+}
+
+.window-name-container {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: #800080;
+  padding: 12px;
+  border-radius: 8px 8px 0 0;
+}
+
+.window-name {
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.button {
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  outline: none;
+
+  &:hover {
+    background-color: #222;
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: #111;
+    border: 1px solid #fff;
+    color: #ddd;
+    transition: none;
+    
+  }
+  
+  
+}
+.button.selected {
+  background-color: #800080; /* Update with your desired background color */
+  color: #ffffff; /* Update with your desired text color */
+  /* Add any other styles to indicate the selected state */
+}
