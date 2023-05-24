@@ -8,17 +8,17 @@ const ScriptsList = ({ onScriptSelect, selectedScripts }) => {
   return (
     <ul>
       <li
-        onClick={() => handleClick("ArcGIS Main")}
+        onClick={() => handleClick("ArcGIS_main")}
         className={`button ${
-          selectedScripts.includes("ArcGIS Main") ? "selected" : ""
+          selectedScripts.includes("ArcGIS_main") ? "selected" : ""
         }`}
       >
         ArcGIS Main
       </li>
       <li
-        onClick={() => handleClick("NH Main")}
+        onClick={() => handleClick("NH_main")}
         className={`button ${
-          selectedScripts.includes("NH Main") ? "selected" : ""
+          selectedScripts.includes("NH_main") ? "selected" : ""
         }`}
       >
         NH Main
