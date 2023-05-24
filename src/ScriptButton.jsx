@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 const ScriptButton = ({ scriptName }) => {
   const [scriptOn, setScriptOn] = useState(false);
+  console.log(scriptOn)
 
   const handleButtonClick = () => {
     if (scriptOn) {
@@ -37,8 +38,9 @@ const ScriptButton = ({ scriptName }) => {
     axios
       .get("http://localhost:9000/script-status")
       .then((response) => {
-        const { scriptOn } = response.data;
-        setScriptOn(scriptOn);
+        
+        console.log(response.data[scriptName],)
+        setScriptOn(response.data[scriptName]);
       })
       .catch((error) => {
         console.error("Error fetching script status:", error);
