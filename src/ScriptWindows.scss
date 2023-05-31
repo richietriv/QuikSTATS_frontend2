@@ -21,7 +21,7 @@
 .scriptWindowsContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: calc(100% - 200px);
 }
 
 .scriptWindowsContainer > * {
@@ -43,7 +43,6 @@
   overflow-x: hidden;
   border: 1px solid #ccc;
   border-radius: 8px;
- 
   padding: 10px;
 }
 
@@ -57,9 +56,7 @@ li {
   padding: 8px;
   border-radius: 4px;
   background-color: #ffffff;
-  
   margin-bottom: 8px;
-
   &:not(:last-child) {
     border-bottom: none;
   }
@@ -82,8 +79,73 @@ li {
 
 .button-container {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.switch-button {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-bottom: 10px;
+}
+
+.switch-button input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #800080;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #800080;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.button-label {
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
 }
 
 .button {
@@ -117,13 +179,45 @@ li {
     border: 1px solid #fff;
     color: #ddd;
     transition: none;
-    
   }
-  
-  
+
+  &.selected {
+    background-color: #800080;
+    color: #ffffff;
+  }
 }
-.button.selected {
-  background-color: #800080; /* Update with your desired background color */
-  color: #ffffff; /* Update with your desired text color */
-  /* Add any other styles to indicate the selected state */
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.scripts-toggle {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.scripts-toggle-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.light {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.light.on {
+  background-color: green;
+}
+
+.light.off {
+  background-color: transparent;
 }

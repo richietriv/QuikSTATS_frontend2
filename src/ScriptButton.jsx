@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { io } from 'socket.io-client';
 
 const ScriptButton = ({ scriptName }) => {
   const [scriptOn, setScriptOn] = useState(false);
@@ -46,6 +47,23 @@ const ScriptButton = ({ scriptName }) => {
         console.error("Error fetching script status:", error);
       });
   }, []);
+
+  useEffect(() => {
+    // Subscribe to socket events for script status updates
+    const socket = io("http://localhost:9000");
+    socket.on("script-status-update", (data) => {
+      if (data.script === scriptName) {
+        setScriptOn(data.status);
+      }
+    });
+
+    // Clean up the socket subscription
+    return () => {
+      socket.disconnect();
+    };
+  }, [scriptName]);
+
+
 
   return (
     <div>

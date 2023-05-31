@@ -43,7 +43,7 @@ const ScriptWindows = (props) => {
     if (autoScroll) {
       scrollToBottom(); // Scroll to bottom immediately when enabling autoscroll
     }
-  }, [autoScroll, data]);
+  }, [autoScroll, props.windowName]);
 
   return (
     <>
